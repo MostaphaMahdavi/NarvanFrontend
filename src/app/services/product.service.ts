@@ -15,6 +15,7 @@ export class ProductService {
 getFilterdProduct():Observable<IResponseResult<filterProductInfo>>{
   
   return this.http.get<IResponseResult<filterProductInfo>>('Products/FilterProduct');
+  
 }
 
 
