@@ -1,0 +1,115 @@
+<!--  ==========  -->
+<!--  = Breadcrumbs =  -->
+<!--  ==========  -->
+<div class="darker-stripe">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <ul class="breadcrumb">
+                    <li>
+                        <a [routerLink]="['']">صفحه اصلی</a>
+                    </li>
+                    <li><span class="icon-chevron-right"></span></li>
+                    <li>
+                        <a href="#">ورود به سامانه </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="push-up top-equal blocks-spacer-last">
+        <div class="row">
+
+            <!--  ==========  -->
+            <!--  = Main Title =  -->
+            <!--  ==========  -->
+
+            <div class="span12">
+                <div class="title-area">
+                    <h1 class="inline"><span class="light"></span>ورود به سامانه </h1>
+                </div>
+            </div>
+
+            <!--  ==========  -->
+            <!--  = Main content =  -->
+            <!--  ==========  -->
+            <section class="span8 single single-page">
+
+
+                <!--  ==========  -->
+                <!--  = Contact Form =  -->
+                <!--  ==========  -->
+                <section class="contact-form-container">
+
+                    <h3 class="push-down-25"><span class="light">ورود</span> به سامانه</h3>
+
+                    <form [formGroup]="loginForm" (ngSubmit)="submitLoginForm()" class="form form-inline form-contact">
+
+                        <p class="push-down-20">
+                            <label for="email">ایمیل<span class="red-clr bold">*</span></label>
+                            <input type="email" class="span12" formControlName="email" aria-required="true" tabindex="1" required>
+                        </p>
+
+                        <p class="text-error" *ngIf="loginForm.controls.email.errors?.required && loginForm.controls.email.touched">
+                            لطفا ایمیل خود را وارد نمایید.
+                        </p>
+                        <p class="text-error" *ngIf="loginForm.controls.email.errors?.maxlength && loginForm.controls.firstName.touched">
+                            تعداد کارکتر ها نمی تواند بیشتر از 250 کاراکتر باشد
+                        </p>
+
+                        <p class="text-error" *ngIf="loginForm.controls.email.errors?.email && loginForm.controls.email.touched">
+                            فرمت ایمیل وارد نمایید
+                        </p>
+
+                        <p class="push-down-20">
+                            <label for="password">کلمه عبور<span class="red-clr bold">*</span></label>
+                            <input type="password" class="span12" formControlName="password" aria-required="true" tabindex="2" required>
+
+                        </p>
+
+
+                        <p class="text-error" *ngIf="loginForm.controls.password.errors?.required && loginForm.controls.password.touched">
+                            لطفا کلمه عبور خود را وارد نمایید.
+                        </p>
+
+                        <p class="text-error" *ngIf="loginForm.controls.password.errors?.maxlength && loginForm.controls.firstName.touched">
+                            تعداد کارکتر ها نمی تواند بیشتر از 50 کاراکتر باشد
+                        </p>
+
+                        <p class="push-down-20">
+                            <label for="rememberMe">مرا به خاطر بسپار </label>
+
+                            <input type="checkbox" checked class="span2" formControlName="rememberMe">
+
+                        </p>
+
+
+
+
+                        <p>
+                            <button [disabled]="loginForm.invalid" class="btn btn-primary bold" type="submit" tabindex="5" id="submit"> ورود </button>
+                        </p>
+
+                    </form>
+                </section>
+
+                <hr />
+
+
+            </section>
+            <!-- /main content -->
+
+
+
+        </div>
+    </div>
+</div>
+<!-- /container -->
+
+
+
+<swal #sweetAlert title="" text="" icon="">
+</swal>
